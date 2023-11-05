@@ -253,6 +253,7 @@ if (favourite !== 23) console.log("Why not 23?");
 //   console.log("Sarah is able to drive!");
 // } else console.log("Someone else should drive...");
 
+/*
 const day = "friday";
 
 switch (day) {
@@ -289,3 +290,14 @@ if (day === "monday") {
 } else if (day === "saturday" || day === "sunday") {
   console.log("Enjoy the weekend");
 } else console.log("ot a valid day");
+*/
+
+3 + 4;
+1991;
+true && false && !false;
+
+if (23 > 10) {
+  const str = "23 is bigger";
+}
+const me = "Gabriela";
+console.log(`Im ${2037 - 1991} years old ${me}`);
