@@ -143,4 +143,10 @@ const calcAge = function (birthYear) {
 
 const year = [1990,1967,2002,2010,2018];
 
- console.log(calcAge(year))
+ const age1 = calcAge(year[0]);
+ const age2 = calcAge(year[1]);
+const age3 = calcAge(year[year.length - 1]);
+console.log(age1,age2,age3)
+
+const ages = [calcAge(year[0]), calcAge(year[1]), calcAge(year[year.length - 1 ])];
+console.log(ages)
