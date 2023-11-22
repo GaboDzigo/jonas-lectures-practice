@@ -89,6 +89,8 @@ const orangePieces = cutFruitsPieces(oranges);
 console.log(fruitProcessor(2,3));
 */
 
+
+/*
 const calcAge = function(birthYear) {
   return 2037 - birthYear;
 }
@@ -108,3 +110,37 @@ const yearsUntilRetirement = function (birthYear, firstName)  {
 
 console.log(yearsUntilRetirement(2013,"Gabo"))
 console.log(yearsUntilRetirement(1950, "Gio"));
+*/
+
+const friend1 = 'Michael';
+const friend2 = 'Steven';
+const friend3 = 'peter';
+
+const friends = ['Michael','Steven','Peter'];
+console.log(friends)
+
+const years = new Array(1991, 1984, 2008, 2020);
+
+console.log(friends[0]);
+console.log(friends[2]);
+
+console.log(friends.length);
+console.log(friends[friends.length - 1])
+
+friends[2] = 'jay';
+console.log(friends);
+// friends = ['bob','alice']
+
+const firstName = 'Gabriela';
+const gabriela = [firstName,'Dzigo',2037 - 2013, 'student', friends];
+console.log(gabriela);
+console.log(gabriela.length);
+
+// exercise
+const calcAge = function (birthYear) {
+  return 2037 - birthYear;
+}
+
+const year = [1990,1967,2002,2010,2018];
+
+ console.log(calcAge(year))
