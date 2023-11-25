@@ -112,6 +112,7 @@ console.log(yearsUntilRetirement(2013,"Gabo"))
 console.log(yearsUntilRetirement(1950, "Gio"));
 */
 
+/*
 const friend1 = 'Michael';
 const friend2 = 'Steven';
 const friend3 = 'peter';
@@ -150,3 +151,20 @@ console.log(age1,age2,age3)
 
 const ages = [calcAge(year[0]), calcAge(year[1]), calcAge(year[year.length - 1 ])];
 console.log(ages)
+*/
+
+const jonasArray = [
+  'Jonas',
+  'Schmedtmann',
+  2037 - 1991,
+  'teacher',
+  ['Michael','Peter','Steven']
+];
+
+const jonas = {
+  firstName : 'Jonas',
+  lastName : 'Schmedtmann',
+  age : 2037 - 1991,
+  job : 'teacher',
+  friends : ['Michael','Peter','Steven']
+};
