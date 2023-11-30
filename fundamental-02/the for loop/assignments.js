@@ -1,3 +1,3 @@
-for(let voter = 1; voter <= 50; voter++) {
+for(let voter = 10; voter >= 1; voter--) {
   console.log(`vote number ${voter} is currently voting`);
 }
