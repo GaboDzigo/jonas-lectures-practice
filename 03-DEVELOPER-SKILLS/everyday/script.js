@@ -9,6 +9,7 @@ const calcAge = birthYear => 2037 - birthYear;
 
 // BUG
 */
+/*
 // Problem:
 // We work for a company building a smart home thermometer. Our most recent taks is this : "Given an array of temperatures of one day, calculate the temperature amplitude. Keep in mind that sometimes there might be a sensor error."
 const tempratures = [3, -2, -6, 1, 'error', 9, 13, 17, 15, 14, 9, 5];
@@ -70,3 +71,25 @@ const calcTempAmpLitudeNew = function (t1, t2) {
 
 const amplitudeNew = calcTempAmpLitudeNew([3, 5, 1], [9, 0, 5]);
 console.log(amplitudeNew);
+*/
+
+const measurementKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'cels',
+
+    // C) FIX
+    value: Number(prompt('Degrees celsius')),
+  };
+  // B) FIND
+  console.table(measurement);
+
+  // console.log(measurement.value);
+  // console.warn(measurement.value);
+  // console.error(measurement.value);
+  const kelvin = measurement.value + 273;
+  return kelvin;
+};
+
+// A) IDENTIFY
+console.log(measurementKelvin());
