@@ -73,6 +73,7 @@ const amplitudeNew = calcTempAmpLitudeNew([3, 5, 1], [9, 0, 5]);
 console.log(amplitudeNew);
 */
 
+/*
 const measurementKelvin = function () {
   const measurement = {
     type: 'temp',
@@ -93,3 +94,29 @@ const measurementKelvin = function () {
 
 // A) IDENTIFY
 console.log(measurementKelvin());
+*/
+
+//1) understanding the promblem
+// - Array transformed to string, seperated by ...
+// - What is the X days? Answer: index + 1
+
+// 2) breaking up into sub-probs
+// - Transfrom array into string
+// - transform each element to string with C
+// - Strings need to contain day(index + 1)
+// - Add ... between elements and start and end of string
+// - Log to the console.
+
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
+
+console.log(`... ${data1[0]}°C  ... ${data1[1]}°C  ... ${data1[2]}°C  ...`);
+
+const printForcast = function (arr) {
+  let str = '';
+  for (let i = 0; i < arr.length; i++) {
+    str += `${arr[i]}°C  in ${i + 1} days ... `;
+  }
+  console.log('... ' + str);
+};
+printForcast(data1);
