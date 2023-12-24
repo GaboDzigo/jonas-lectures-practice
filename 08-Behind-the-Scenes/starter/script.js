@@ -176,6 +176,7 @@ var AddArrow = (a, b) => {
 AddArrow(2, 5, 8);
 */
 
+/*
 let age = 30;
 let oldAge = age;
 age = 31;
@@ -191,3 +192,37 @@ const friend = me;
 friend.age = 27;
 console.log('Friend:', friend);
 console.log('Me:', me);
+*/
+
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName);
+
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+const marriedJessica = jessica;
+marriedJessica.lastName = 'davis';
+console.log(`Before marriege:`, jessica);
+console.log(`After marriege:`, marriedJessica);
+
+// marriedJessica = {};
+
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alica', 'Bob'],
+};
+
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = 'davis';
+
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+
+console.log(`Before marriege:`, jessica2);
+console.log(`After marriege:`, jessicaCopy);
