@@ -48,34 +48,42 @@ const restaurant = {
   },
 };
 
-console.log('-----OR-----');
-// Use ANY data type, return ANY data type, short-circuiting
-console.log(3 || 'Gabo');
-console.log('' || 'Gabo');
-console.log(true || 0);
-console.log(undefined || null);
-
-console.log(undefined || 0 || '' || 'Hello' || 23 || null);
-
 restaurant.numGuests = 0;
-const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guests1);
+const guests = restaurant.numGuests || 10;
+console.log(guests);
 
-const guests2 = restaurant.numGuests || 10;
-console.log(guests2);
+// Nullish : null and undefined (NOT 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
 
-console.log('-----AND-----');
-console.log(0 && 'Gabo');
-console.log(7 && 'Gabo');
+// console.log('-----OR-----');
+// // Use ANY data type, return ANY data type, short-circuiting
+// console.log(3 || 'Gabo');
+// console.log('' || 'Gabo');
+// console.log(true || 0);
+// console.log(undefined || null);
 
-console.log('Hello' && 23 && null && 'Gabo');
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
-// practical example
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('mushrooms', 'spinach');
-}
+// restaurant.numGuests = 0;
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1);
 
-restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+// const guests2 = restaurant.numGuests || 10;
+// console.log(guests2);
+
+// console.log('-----AND-----');
+// console.log(0 && 'Gabo');
+// console.log(7 && 'Gabo');
+
+// console.log('Hello' && 23 && null && 'Gabo');
+
+// // practical example
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushrooms', 'spinach');
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 
 ////////////////////////////////////////////////
 // // SPREAD, bcz on right side of =
