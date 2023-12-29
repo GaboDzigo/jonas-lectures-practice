@@ -46,36 +46,112 @@ const restaurant = {
   },
 };
 
-const question = new Map([
-  ['question','What is the best programming language in the world?'],
-  [1, 'C'],
-  [2, 'Java'],
-  [3, 'Javascript'],
-  ['correct', 3],
-  [true, 'Correct🎉'],
-  [false, 'Try again :(!'],
-]);
-console.log(question);
+const airLine = 'Tap Air Portugal';
+const plane = 'A320';
 
-// Convert object to map
-console.log(Object.entries(openingHours));
-const hoursMap = new Map(Object.entries(openingHours));
-console.log(hoursMap);
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
 
-console.log(question.get('question'));
-for(const [key, value] of question) {
-  if(typeof key === 'number')  console.log(`Answer ${key}: ${value}`);
+console.log(airLine.length);
+console.log('B737'.length);
+
+console.log(airLine.indexOf('r'));
+console.log(airLine.lastIndexOf('r'));
+console.log(airLine.indexOf('portugal'));
+
+console.log(airLine.slice(4));
+console.log(airLine.slice(4, 7));
+
+console.log(airLine.slice(0, airLine.indexOf(' ')));
+console.log(airLine.slice(airLine.lastIndexOf(' ') + 1));
+
+console.log(airLine.slice(-2));
+console.log(airLine.slice(1, -1));
+
+const checkMiddleSeat = function(seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1)
+  if(s === 'B' || s === 'E')
+  console.log('You got the middle seat😬');
+  else console.log('You got lucky😁');
 }
-// const answer = Number(prompt('Your answer'));
-console.log(answer);
 
-console.log(question.get(question.get('correct') ===  answer));
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3B');
 
-// Convert map to array
-console.log([...question]);
-// console.log(question.entries());
-console.log([...question.key()]);
-console.log([...question.value()]);
+
+console.log(new String('Jonas'));
+console.log(typeof new String('Jonas'));
+///////////////////////////////////////////////////////
+// coding challenge #3
+
+// const gameEvents = new Map([
+//   [17, '⚽️ GOAL'],
+//   [36, '🔁 Substitution'],
+//   [47, '⚽️ GOAL'],
+//   [61, '🔁 Substitution'],
+//   [64, '🔶 Yellow card'],
+//   [69, '🔴 Red card'],
+//   [70, '🔁 Substitution'],
+//   [72, '🔁 Substitution'],
+//   [76, '⚽️ GOAL'],
+//   [80, '⚽️ GOAL'],
+//   [92, '🔶 Yellow card'],
+// ]);
+
+// // 1.
+// const events = [...new Set(gameEvents.values())]
+// console.log(events);
+
+// //2.
+// gameEvents.delete(64);
+
+// // 3.
+// const time = [...gameEvents.keys()].pop;
+
+// console.log(`An event happend, on average, every ${ 90 /gameEvents.size } minutes`);
+
+// console.log(time);
+// // 4.
+// for (const [min, event] of gameEvents) {
+//   const half = min <= 45 ? 'FIRST' : 'SECOND';
+//   console.log(`[${half} HALF] ${min}: ${event}`);
+// }
+
+// ////////////////////////////////////////
+// const question = new Map([
+//   ['question','What is the best programming language in the world?'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'Javascript'],
+//   ['correct', 3],
+//   [true, 'Correct🎉'],
+//   [false, 'Try again :(!'],
+// ]);
+// console.log(question);
+
+// // Convert object to map
+// console.log(Object.entries(openingHours));
+// const hoursMap = new Map(Object.entries(openingHours));
+// console.log(hoursMap);
+
+// console.log(question.get('question'));
+// for(const [key, value] of question) {
+//   if(typeof key === 'number')  console.log(`Answer ${key}: ${value}`);
+// }
+// // const answer = Number(prompt('Your answer'));
+// console.log(answer);
+
+// console.log(question.get(question.get('correct') ===  answer));
+
+// // Convert map to array
+// console.log([...question]);
+// // console.log(question.entries());
+// console.log([...question.key()]);
+// console.log([...question.value()]);
 /////////////////////////////////////////////////////////////////////
 // const rest = new Map();
 // rest.set('name', 'Classico Italiano');
