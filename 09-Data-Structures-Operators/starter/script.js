@@ -85,6 +85,8 @@ checkMiddleSeat('3B');
 
 console.log(new String('Jonas'));
 console.log(typeof new String('Jonas'));
+
+console.log(typeof new String('Jonas').slice(1));
 ///////////////////////////////////////////////////////
 // coding challenge #3
 
