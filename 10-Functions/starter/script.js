@@ -1,6 +1,6 @@
 'use strict';
 
-
+/*
 ///////////////////////////////////////
 // Default Parameters
 // const bookings = [];
@@ -66,30 +66,49 @@
 // newPassport(jonas);
 // checkIn(flight, jonas);
 /////////////////////////////////////////
- const oneWord = function(str) {
-  return str.replace(/ /g, '').toLowerCase();
+//  const oneWord = function(str) {
+//   return str.replace(/ /g, '').toLowerCase();
+//  }
+
+// const upperFirstWord = function(str) {
+//   const [first, ...others] = str.split(' ');
+//   return [first.toUpperCase(), ...others].join(' ');
+// }
+
+// const transformer = function(str, fn) {
+//   console.log(`Original string: ${str}`);
+//   console.log(`Transformed strings:${fn(str)}`);
+ 
+//   console.log(`Transformed by: ${fn.name}`);
+// }
+
+// transformer('Javascript is the best|!', upperFirstWord)
+
+// transformer('Javascript is the best|!', oneWord)
+
+// //JS uses callbacks all the time
+// const high5 = function() {
+//   console.log('👋');
+// }
+// document.body.addEventListener('click', high5);
+
+// ['jonas','Martha','Adam'].forEach(high5)
+*/
+
+
+ const greet = function(greeting) {
+   return function(name) {
+    console.log(`${greeting} ${name}`);
+  }
  }
 
-const upperFirstWord = function(str) {
-  const [first, ...others] = str.split(' ');
-  return [first.toUpperCase(), ...others].join(' ');
-}
 
-const transformer = function(str, fn) {
-  console.log(`Original string: ${str}`);
-  console.log(`Transformed strings:${fn(str)}`);
- 
-  console.log(`Transformed by: ${fn.name}`);
-}
+const greeterHey = greet('Hey');
+greeterHey('Jonas');
+greeterHey('Steven');
 
-transformer('Javascript is the best|!', upperFirstWord)
+greet('hello')('Jonas');
 
-transformer('Javascript is the best|!', oneWord)
+const greetArr = (greeting) => name => console.log(`${greeting} ${name}`);
 
-//JS uses callbacks all the time
-const high5 = function() {
-  console.log('👋');
-}
-document.body.addEventListener('click', high5);
-
-['jonas','Martha','Adam'].forEach(high5)
+greetArr('Hi')('Gabriela');
