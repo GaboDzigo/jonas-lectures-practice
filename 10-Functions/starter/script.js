@@ -95,20 +95,66 @@
 // ['jonas','Martha','Adam'].forEach(high5)
 */
 
+/*
+//  const greet = function(greeting) {
+//    return function(name) {
+//     console.log(`${greeting} ${name}`);
+//   }
+//  }
 
- const greet = function(greeting) {
-   return function(name) {
-    console.log(`${greeting} ${name}`);
+
+// const greeterHey = greet('Hey');
+// greeterHey('Jonas');
+// greeterHey('Steven');
+
+// greet('hello')('Jonas');
+
+// const greetArr = (greeting) => name => console.log(`${greeting} ${name}`);
+
+// greetArr('Hi')('Gabriela');
+*/
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  // book: function(){}
+  book(flightNum, name) {
+     console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
+     this.bookings.push({flight: `${this.iataCode}${flightNum}`, name})
   }
- }
+}
 
+lufthansa.book(239, 'Jonas Schmedtmann')
+lufthansa.book(635, 'Jonas Smith')
+console.log(lufthansa);
 
-const greeterHey = greet('Hey');
-greeterHey('Jonas');
-greeterHey('Steven');
+const eurowings = {
+  airline:'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
 
-greet('hello')('Jonas');
+const book = lufthansa.book;
+// Does not work
+// book(23, 'Sarah Williams')
+book.call(eurowings, 23, 'Sarah williams')
+console.log(eurowings);
 
-const greetArr = (greeting) => name => console.log(`${greeting} ${name}`);
+book.call(lufthansa, 239, 'Mary Cooper')
+console.log(lufthansa);
 
-greetArr('Hi')('Gabriela');
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode : 'LX',
+  bookings: []
+}
+
+book.call(swiss, 583, 'Mary Cooper');
+console.log(swiss);
+
+const flightData = [583, 'George Cooper'];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+book.call(swiss, ...flightData);
