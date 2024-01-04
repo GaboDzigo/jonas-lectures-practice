@@ -201,25 +201,42 @@
 // console.log(addVAT(100));
 // console.log(addVAT(23));
 
-const runOnce = function() {
-  console.log('This will never run again');
-};
-runOnce();
+// const runOnce = function() {
+//   console.log('This will never run again');
+// };
+// runOnce();
 
-// IIFE
-(function() {
-  console.log('This will never run again');
-  const isPrivate = 23;
-})();
+// // IIFE
+// (function() {
+//   console.log('This will never run again');
+//   const isPrivate = 23;
+// })();
 
-// console.log(isPrivate);
+// // console.log(isPrivate);
 
-(() => console.log('This will never run again'))
-();
+// (() => console.log('This will never run again'))
+// ();
 
-{
-  const isPrivate =23
-  var notPrivate = 46;
+// {
+//   const isPrivate =23
+//   var notPrivate = 46;
+// }
+// // console.log(isPrivate);
+// console.log(notPrivate);
+
+const secureBooking = function() {
+  let passengerCount = 0;
+  
+  return function() {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  }
 }
-// console.log(isPrivate);
-console.log(notPrivate);
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.log(booker);
