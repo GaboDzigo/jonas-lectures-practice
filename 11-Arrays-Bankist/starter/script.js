@@ -89,7 +89,7 @@ const createUsernames = function (accs) {
     .join('');
   })
 };
-createUsernames(accounts);
+console.log(accounts);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -229,3 +229,15 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //   `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}`
 // );
 // console.log(movementsDescriptions);
+const deposits = movements.filter(function(mov) {
+  return mov > 0;
+})
+console.log(movements);
+console.log(deposits);
+
+const depositsFor = [];
+for(const mov of movements) if(mov > 0) depositsFor.push(mov)
+console.log(depositsFor);
+
+const widthdrawals = movements.filter(mov => mov < 0);
+console.log(widthdrawals);
