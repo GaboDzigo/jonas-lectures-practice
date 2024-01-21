@@ -32,93 +32,124 @@ document.addEventListener('keydown', function (e) {
 ///////////////////////////////////////
 ///////////////////////////////////////
 
-
 ///////////////////////////////////////
 // Selecting, Creating, and Deleting Elements
 
 // Selecting elements
-console.log(document.documentElement);
-console.log(document.head);
-console.log(document.body);
+// console.log(document.documentElement);
+// console.log(document.head);
+// console.log(document.body);
 
-const header = document.querySelector('.header');
-const allSections = document.querySelectorAll('.section');
-console.log(allSections);
+// const header = document.querySelector('.header');
+// const allSections = document.querySelectorAll('.section');
+// console.log(allSections);
 
-document.getElementById('section--1');
-const allButtons = document.getElementsByTagName('button');
-console.log(allButtons);
+// document.getElementById('section--1');
+// const allButtons = document.getElementsByTagName('button');
+// console.log(allButtons);
 
-console.log(document.getElementsByClassName('btn'));
+// console.log(document.getElementsByClassName('btn'));
 
-// Creating and inserting elements
-const message = document.createElement('div');
-message.classList.add('cookie-message');
-// message.textContent = 'We use cookied for improved functionality and analytics.';
-message.innerHTML =
-  'We use cookied for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+// // Creating and inserting elements
+// const message = document.createElement('div');
+// message.classList.add('cookie-message');
+// // message.textContent = 'We use cookied for improved functionality and analytics.';
+// message.innerHTML =
+//   'We use cookied for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
 
-// header.prepend(message);
-header.append(message);
-// header.append(message.cloneNode(true));
+// // header.prepend(message);
+// header.append(message);
+// // header.append(message.cloneNode(true));
 
-// header.before(message);
-// header.after(message);
+// // header.before(message);
+// // header.after(message);
 
-// Delete elements
-document
-  .querySelector('.btn--close-cookie')
-  .addEventListener('click', function () {
-    // message.remove();
-    message.parentElement.removeChild(message);
-  });
+// // Delete elements
+// document
+//   .querySelector('.btn--close-cookie')
+//   .addEventListener('click', function () {
+//     // message.remove();
+//     message.parentElement.removeChild(message);
+//   });
 
-  
-///////////////////////////////////////
-// Styles, Attributes and Classes
-  
-// Styles
-message.style.backgroundColor = '#37383d';
-message.style.width = '120%';
+// ///////////////////////////////////////
+// // Styles, Attributes and Classes
 
-console.log(message.style.color);
-console.log(message.style.backgroundColor);
+// // Styles
+// message.style.backgroundColor = '#37383d';
+// message.style.width = '120%';
 
-console.log(getComputedStyle(message).color);
-console.log(getComputedStyle(message).height);
+// console.log(message.style.color);
+// console.log(message.style.backgroundColor);
 
-message.style.height =
-  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
+// console.log(getComputedStyle(message).color);
+// console.log(getComputedStyle(message).height);
 
-document.documentElement.style.setProperty('--color-primary', 'orangered');
+// message.style.height =
+//   Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
 
-// Attributes
-const logo = document.querySelector('.nav__logo');
-console.log(logo.alt);
-console.log(logo.className);
+// document.documentElement.style.setProperty('--color-primary', 'orangered');
 
-logo.alt = 'Beautiful minimalist logo';
+// // Attributes
+// const logo = document.querySelector('.nav__logo');
+// console.log(logo.alt);
+// console.log(logo.className);
 
-// Non-standard
-console.log(logo.designer);
-console.log(logo.getAttribute('designer'));
-logo.setAttribute('company', 'Bankist');
+// logo.alt = 'Beautiful minimalist logo';
 
-console.log(logo.src);
-console.log(logo.getAttribute('src'));
+// // Non-standard
+// console.log(logo.designer);
+// console.log(logo.getAttribute('designer'));
+// logo.setAttribute('company', 'Bankist');
 
-const link = document.querySelector('.twitter-link')
-console.log(link.href);
-console.log(link.getAttribute('href'));
+// console.log(logo.src);
+// console.log(logo.getAttribute('src'));
 
-// Data attribute
-console.log(logo.dataset.versionNumber);
+// const link = document.querySelector('.twitter-link')
+// console.log(link.href);
+// console.log(link.getAttribute('href'));
 
-// classes
-logo.classList.add('c', 'j');
-logo.classList.remove('c', 'j');
-logo.classList.toggle('c');
-logo.classList.contains('c'); //. not includes
+// // Data attribute
+// console.log(logo.dataset.versionNumber);
 
-// DONT USE 😡
-logo.className = 'Jonas'
+// // classes
+// logo.classList.add('c', 'j');
+// logo.classList.remove('c', 'j');
+// logo.classList.toggle('c');
+// logo.classList.contains('c'); //. not includes
+
+// // DONT USE 😡
+// logo.className = 'Jonas'
+/////////////////////////////////////////
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+
+  console.log(e.target.getBoundingClientRect());
+
+  console.log(' Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+
+  console.log(
+    'heigh/width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+
+  // Scrolling
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // );
+
+  // window.scrollTo({
+  //  left : s1coords.left + window.pageXOffset,
+  //  top : s1coords.top + window.pageYOffset,
+  //  behavior: 'smooth',
+  // });
+
+  section1.scrollIntoView({behavior: 'smooth'})
+});
