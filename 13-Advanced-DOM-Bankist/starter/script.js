@@ -32,6 +32,7 @@ document.addEventListener('keydown', function (e) {
 ///////////////////////////////////////
 ///////////////////////////////////////
 
+
 ///////////////////////////////////////
 // Selecting, Creating, and Deleting Elements
 
@@ -72,9 +73,10 @@ document.addEventListener('keydown', function (e) {
 //     message.parentElement.removeChild(message);
 //   });
 
+  
 // ///////////////////////////////////////
 // // Styles, Attributes and Classes
-
+  
 // // Styles
 // message.style.backgroundColor = '#37383d';
 // message.style.width = '120%';
@@ -105,65 +107,62 @@ document.addEventListener('keydown', function (e) {
 // console.log(logo.src);
 // console.log(logo.getAttribute('src'));
 
-// const link = document.querySelector('.twitter-link')
+// const link = document.querySelector('.nav__link--btn');
 // console.log(link.href);
 // console.log(link.getAttribute('href'));
 
-// // Data attribute
+// // Data attributes
 // console.log(logo.dataset.versionNumber);
 
-// // classes
+// // Classes
 // logo.classList.add('c', 'j');
 // logo.classList.remove('c', 'j');
 // logo.classList.toggle('c');
-// logo.classList.contains('c'); //. not includes
+// logo.classList.contains('c'); // not includes
 
-// // DONT USE 😡
-// logo.className = 'Jonas'
-/////////////////////////////////////////
+// // Don't use
+// logo.clasName = 'jonas';
 
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
 
-btnScrollTo.addEventListener('click', function (e) {
-  const s1coords = section1.getBoundingClientRect();
-  console.log(s1coords);
+// ///////////////////////////////////////
+// // Types of Events and Event Handlers
+// const h1 = document.querySelector('h1');
 
-  console.log(e.target.getBoundingClientRect());
+// const alertH1 = function (e) {
+//   alert('addEventListener: Great! You are reading the heading :D');
+// };
 
-  console.log(' Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+// h1.addEventListener('mouseenter', alertH1);
 
-  console.log(
-    'heigh/width viewport',
-    document.documentElement.clientHeight,
-    document.documentElement.clientWidth
-  );
+// setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
 
-  // Scrolling
-  // window.scrollTo(
-  //   s1coords.left + window.pageXOffset,
-  //   s1coords.top + window.pageYOffset
-  // );
+// h1.onmouseenter = function (e) {
+//   alert('onmouseenter: Great! You are reading the heading :D');
+// };
 
-  // window.scrollTo({
-  //  left : s1coords.left + window.pageXOffset,
-  //  top : s1coords.top + window.pageYOffset,
-  //  behavior: 'smooth',
-  // });
 
-  section1.scrollIntoView({behavior: 'smooth'})
+///////////////////////////////////////
+// Event Propagation in Practice
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+const randomColor = () =>
+  `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+
+document.querySelector('.nav__link').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log('LINK', e.target, e.currentTarget);
+  console.log(e.currentTarget === this);
+
+  // Stop propagation
+  // e.stopPropagation();
 });
 
-const h1 = document.querySelector('h1');
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log('CONTAINER', e.target, e.currentTarget);
+});
 
-const alertH1 = function(e) {
-  alert(`addEventListener: Great! you're reading the heading :D`);
-}
-
-h1.addEventListener('mouseenter', alertH1)
-
-setTimeout(() =>   h1.removeEventListener('mouseenter', alertH1), 3000)
-
-// h1.onmouseenter = function(e) {
-//   alert(`onmouseneter: Great! you're reading the heading :D`);
-// }
+document.querySelector('.nav').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log('NAV', e.target, e.currentTarget);
+});
