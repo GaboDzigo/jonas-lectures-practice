@@ -47,21 +47,19 @@ btnScrollTo.addEventListener('click', function (e) {
     document.documentElement.clientWidth
   );
 
+  // Scrolling
+  // window.scrollTo(
+  //  s1coords.left + window.pageXOffset,
+  //  s1coords.left + window.pageYOffset,
+  // );
 
-// Scrolling
-// window.scrollTo(
-//  s1coords.left + window.pageXOffset,
-//  s1coords.left + window.pageYOffset,
-// );
+  // window.scrollTo({
+  // left: s1coords.left + window.pageXoffset,
+  // top : s1coords.top + window.pageYoffset,
+  // behavior: 'smooth',
+  // });
 
-// window.scrollTo({
-// left: s1coords.left + window.pageXoffset,
-// top : s1coords.top + window.pageYoffset,
-// behavior: 'smooth',
-// });
-
-section1.scrollIntoView({behavior: 'smooth'});
-
+  section1.scrollIntoView({ behavior: 'smooth' });
 });
 
 //////////////////////////////////
@@ -79,19 +77,43 @@ section1.scrollIntoView({behavior: 'smooth'});
 // 1. add event listener to common parent element
 // 2. determine what element orginated the event
 
-document.querySelector('.nav__links').addEventListener('click', function(e){
-   e.preventDefault();
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  e.preventDefault();
 
   // Matching stategy
-  if(e.target.classList.contains('nav__link')) {
+  if (e.target.classList.contains('nav__link')) {
     const id = e.target.getAttribute('href');
-    document.querySelector(id).scrollIntoView({behavior: 'smooth'})
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
   }
-})
+});
+// Tabbed component
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.operations__tab');
+
+  // Guard clause
+  if (!clicked) return;
+
+  // Remove active classes
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+  clicked.classList.add('operations__tab--active');
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'))
+
+  // activate tab
+  clicked.classList.add('operations__tab--active');
+
+  // activate content area
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
+});
 
 ///////////////////////////////////////
 ///////////////////////////////////////
-///////////////////////////////////////
+//////////////////////////////////////
 
 ///////////////////////////////////////
 // Selecting, Creating, and Deleting Elements
@@ -253,3 +275,4 @@ document.querySelector('.nav__links').addEventListener('click', function(e){
 // [...h1.parentElement.children].forEach(function(el) {
 //   if(el !== h1) el.style.transform = 'scale(0.5)';
 // })
+////////////////////////////////////////////
