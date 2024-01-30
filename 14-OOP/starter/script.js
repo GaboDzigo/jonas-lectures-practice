@@ -86,25 +86,64 @@ DATA CAR 2: 'Mercedes' going at 95 km/h
 GOOD LUCK 😀
 */
 
-const Car = function(make, speed) {
-  this.make = make;
-  this.speed = speed;
-};
+// const Car = function(make, speed) {
+//   this.make = make;
+//   this.speed = speed;
+// };
 
-Car.prototype.accelerate = function() {
-  this.speed += 10;
-  console.log(`${this.make} is going at ${this.speed}kmph`);
+// Car.prototype.accelerate = function() {
+//   this.speed += 10;
+//   console.log(`${this.make} is going at ${this.speed}kmph`);
+// }
+
+// Car.prototype.brake = function() {
+//   this.speed -= 10;
+//   console.log(`${this.make} is going at ${this.speed}kmph`);
+// }
+
+// const bmw = new Car('BMW', 120);
+// const mercedes = new Car('Mercedes', 95)
+
+// bmw.accelerate();
+// bmw.accelerate();
+// bmw.brake();
+// bmw.accelerate();
+//////////////////////////////////////////////////////////
+
+// class expression
+// const PersonCl = class {
+
+// }
+
+// class declaration
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  
+  // Methods will be added to .prototype property
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+
 }
 
-Car.prototype.brake = function() {
-  this.speed -= 10;
-  console.log(`${this.make} is going at ${this.speed}kmph`);
-}
+const jessica = new PersonCl('Jessica', 1996);
+console.log(jessica);
+jessica.calcAge();
 
-const bmw = new Car('BMW', 120);
-const mercedes = new Car('Mercedes', 95)
+console.log(jessica.__proto__ === PersonCl.prototype);
 
-bmw.accelerate();
-bmw.accelerate();
-bmw.brake();
-bmw.accelerate();
+// PersonCl.prototype.greet = function() {
+//   console.log(`Hey ${this.firstName}`);
+// }
+jessica.greet();
+
+// 1. Classes are NOT hoisteed
+// 2. Class are first-class citizes
+// 3. Classes are executed in strict mode
